@@ -29,6 +29,6 @@ test('test', async ({ page }) => {
   await page.getByPlaceholder('End Date').fill('2005-05-30');
   await page.locator('#post-body-1307673142697428135').getByRole('button', { name: 'Submit' }).click();
   await expect(page.locator('#result')).toMatchAriaSnapshot(`- text: /You selected a range of \\d+ days\\./`);
-await page.locator('#singleFileInput')
+  await page.locator('#singleFileInput')
   .setInputFiles('test-data/Laurel wreath icon.jpg');
 });
