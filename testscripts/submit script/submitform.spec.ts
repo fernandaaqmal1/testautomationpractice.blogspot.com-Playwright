@@ -30,5 +30,7 @@ test('test', async ({ page }) => {
   await page.locator('#post-body-1307673142697428135').getByRole('button', { name: 'Submit' }).click();
   await expect(page.locator('#result')).toMatchAriaSnapshot(`- text: /You selected a range of \\d+ days\\./`);
   await page.locator('#singleFileInput')
-  .setInputFiles('test-data/Laurel wreath icon.jpg');
+  .setInputFiles('test-data/pict1.jpg');
+  await page.getByRole('button', { name: 'Upload Single File' }).click();
+  await expect(page.locator('#singleFileStatus')).toMatchAriaSnapshot(`- paragraph: "/Single file selected: pict1\\\\.jpg, Size: \\\\d+ bytes, Type: image\\\\/jpeg/"`);
 });
